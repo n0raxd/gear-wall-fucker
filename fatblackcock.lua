@@ -1,3 +1,4 @@
+queueteleport("loadstring(game:HttpGet("https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/fatblackcock.lua"))()")
 function typegear(inputValue, teleportPlayer)
     -- Default teleportPlayer to true if not provided
     teleportPlayer = teleportPlayer == nil and true or teleportPlayer
@@ -132,6 +133,7 @@ local placeId = game.PlaceId -- Current game's Place ID
 local jobId = game.JobId -- Current server's Job ID
 
 teleportService:TeleportToPlaceInstance(placeId, jobId, game.Players.LocalPlayer)
+        
 end)
 -- game breaking shit
 gearwall4:NewButton("Crash Server", ":3", function()
@@ -141,6 +143,7 @@ gearwall4:NewButton("Sword Kill All (Requires Ice Dagger)", ":3", function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
 end)
 -- spamming to be done
-gearwall5:NewButton("Sword Kill All (Requires Ice Dagger)", ":3", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
+gearwall5:NewButton("pony spam", ":3", function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/pony'))()
 end)
