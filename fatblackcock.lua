@@ -1,4 +1,4 @@
-queueteleport("loadstring(game:HttpGet("https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/fatblackcock.lua"))()")
+queueteleport("loadstring(game:HttpGet("https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/fatblackcock.lua?token=$(date%20+%s)"))()")
 function typegear(inputValue, teleportPlayer)
     -- Default teleportPlayer to true if not provided
     teleportPlayer = teleportPlayer == nil and true or teleportPlayer
