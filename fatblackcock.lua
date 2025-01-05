@@ -144,8 +144,10 @@ typegear("80661504")
     [1] = Enum.KeyCode.Q
 }
 
-game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:FireServer(unpack(args))
+game:GetService("Players").LocalPlayer.Character:WaitForChild("ChartreusePeriastron"):WaitForChild("Remote"):FireServer(unpack(args))
+
           game.Players.LocalPlayer.Character.ChartreusePeriastron:Destroy()
+          wait(11)
         end
       end)
   gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
