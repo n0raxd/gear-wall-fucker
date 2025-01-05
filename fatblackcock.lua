@@ -144,6 +144,16 @@ pcall(function()
   gearwall6:NewButton("set walkspeed", "mreow", function()
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
   end)
+    
+       local permwalkspeed = gearwall6:NewTextBar("perm walkspeed number", ":D")
+    
+  gearwall6:NewButton("set perm walkspeed", "mreow", function()
+        while task.wait() do
+          
+  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = permwalkspeed.Text
+        end
+  end)
+    
    
   gearwall:NewButton("Delete All Ur Tools", ":3", function()
   game.Players.LocalPlayer.Backpack:ClearAllChildren()
@@ -220,7 +230,6 @@ else
 end
 
   end)
-gearwall5:NewLabel("this stop button controls all loops")
  gearwall5:NewButton("stop", "mreow", function()
         _G.running = false
        
