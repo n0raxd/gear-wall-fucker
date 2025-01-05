@@ -136,6 +136,17 @@ pcall(function()
   typegear("78730532")
   
       end)
+    gearwall6:NewButton("green sword exploit", "mreow", function()
+        while wait() do
+typegear("60357972")
+          local args = {
+    [1] = Enum.KeyCode.Q
+}
+
+game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:FireServer(unpack(args))
+          game.Players.LocalPlayer.Character.ChartreusePeriastron:Destroy()
+        end
+      end)
   gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
   typegear("60357972")
   local player = game.Players.LocalPlayer
