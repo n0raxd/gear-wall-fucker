@@ -232,7 +232,5 @@ end
         _G.running = false
        
       end)
-    gearwall5:NewButton("pony spam", ":3", function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/pony'))()
-      end)
+
   end)
