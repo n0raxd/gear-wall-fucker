@@ -140,8 +140,8 @@
   
   swapWithUser(customid2.Text)
   end)
-    local walkspeed = gearwall:NewTextBar("walkspeed number", ":D")
-  gearwall:NewButton("set walkspeed", "mreow", function()
+    local walkspeed = gearwall6:NewTextBar("walkspeed number", ":D")
+  gearwall6:NewButton("set walkspeed", "mreow", function()
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
   end)
   gearwall:NewButton("Delete All Ur Tools", ":3", function()
