@@ -136,7 +136,35 @@ pcall(function()
   typegear("78730532")
   
       end)
+      gearwall6:NewButton("hedgehog gun 0 cooldown", "mreow", function()
+  typegear("60357972")
+  local player = game.Players.LocalPlayer
+_G.nocooldown = false  -- Initialize the toggle to false
 
+-- Function to set up monitoring for a character
+local function setupCharacter(character)
+    character.ChildAdded:Connect(function(child)
+        if child:IsA("Tool") and child.Name == "FlamingHedgehogCannon" then
+            child.Activated:Connect(function()
+                if _G.nocooldown then  -- Only run if nocooldown is true
+                    task.delay(0.1, function()
+                        typegear("60357972")
+                    end)
+                end
+            end)
+        end
+    end)
+end
+      end)
+
+
+-- Monitor current character
+if player.Character then
+    setupCharacter(player.Character)
+end
+
+-- Monitor future characters
+player.CharacterAdded:Connect(setupCharacter)
   local customid2 = gearwall6:NewTextBar("username", ":D")
   gearwall6:NewButton("body swap (equip body swap gear)", "mreow", function()
   
