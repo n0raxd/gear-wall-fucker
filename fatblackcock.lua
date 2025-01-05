@@ -210,10 +210,14 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
     
     
 local spamid = gearwall5:NewTextBar("gear id", ":D")
-  gearwall5:NewButton("spam gear", "mreow", function()
+  gearwall5:NewButton("start", "mreow", function()
         _G.running = true
         _G.gearid = spamid.Text
   loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()
         
   end)
-end)
+     gearwall5:NewButton("stop", "mreow", function()
+        _G.running = false
+       
+  end)
+  end)
