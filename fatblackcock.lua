@@ -169,17 +169,34 @@ if character then
 end
 
   end)
+      gearwall:NewButton("delete tools on respawn", ":3", function()
+         game.Players.LocalPlayer.CharacterAdded:Connect(function()
+            wait(0.2)
+  game.Players.LocalPlayer.Backpack:ClearAllChildren()
+ local player = game.Players.LocalPlayer
+local character = player.Character
+
+if character then
+    for _, child in pairs(character:GetChildren()) do
+        if child:IsA("Tool") then
+            child:Destroy()
+        end
+    end
+end
+end)
+  end)
     gearwall:NewButton("invis (key is t)", ":3", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Sakupenny/Universal-R6-Invis/refs/heads/main/Main.lua"))()
       end)
 local customid = gearwall:NewTextBar("gear id", ":D")
   gearwall:NewButton("spawn gear", "mreow", function()
   typegear(customid.Text)
+        startgearid = customid.Text
   end)
       gearwall:NewButton("add to starter gear", "mreow", function()
   game.Players.LocalPlayer.CharacterAdded:Connect(function()
             wait(0.2)
-    typegear(customid.Text)
+    typegear(startgearid)
 end)
 
   end)
