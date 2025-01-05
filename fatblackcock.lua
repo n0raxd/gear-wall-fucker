@@ -125,6 +125,7 @@ pcall(function()
   local Pendulum = Library:New("test all gears fucker")
   
   local gearwall = Pendulum:NewTab("gear spawning")
+  
   local gearwall2 = Pendulum:NewTab("model stuff")
   local gearwall3 = Pendulum:NewTab("universal stuff")
   local gearwall4 = Pendulum:NewTab("game breaking shit")
@@ -134,7 +135,7 @@ pcall(function()
   gearwall6:NewButton("get body swap gear", "mreow", function()
   typegear("78730532")
   
-  end)
+      end)
 
   local customid2 = gearwall6:NewTextBar("username", ":D")
   gearwall6:NewButton("body swap (equip body swap gear)", "mreow", function()
@@ -174,6 +175,13 @@ end
 local customid = gearwall:NewTextBar("gear id", ":D")
   gearwall:NewButton("spawn gear", "mreow", function()
   typegear(customid.Text)
+  end)
+      gearwall:NewButton("add to starter gear", "mreow", function()
+  game.Players.LocalPlayer.CharacterAdded:Connect(function()
+            wait(0.2)
+    typegear(customid.Text)
+end)
+
   end)
   gearwall:NewButton("Icedagger", ":3", function()
   typegear("83704165")
