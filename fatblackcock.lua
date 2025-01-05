@@ -151,7 +151,9 @@ pcall(function()
 local function onToolActivated(tool)
     tool.Activated:Connect(function()
         print(tool.Name .. " was activated!")
+              tool:Destroy()
         typegear("60357972")
+              
     end)
 end
 
