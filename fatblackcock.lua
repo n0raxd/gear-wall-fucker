@@ -286,7 +286,7 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   end)
       gearwall4:NewButton("floor glitch starterpack", ":3", function()
         typegear("110789105")
-        wait(0.1)
+        wait(0.3)
         typegear("112593662")
   end)
   -- spamming to be done
