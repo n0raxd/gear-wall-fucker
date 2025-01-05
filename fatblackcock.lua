@@ -1,4 +1,5 @@
-  
+placeid = game.PlaceId
+if placeid == 6816362093 then
   function typegear(inputValue, teleportPlayer)
       -- Default teleportPlayer to true if not provided
       teleportPlayer = teleportPlayer == nil and true or teleportPlayer
@@ -183,5 +184,5 @@
   
   loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/pony'))()
   end)
-  
-  swapWithUser("ava")
+else
+  print("not gear wall, not loading")
