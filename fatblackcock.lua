@@ -149,12 +149,11 @@ while wait() do
     -- Call typegear with the ID
     typegear("80661504")
     
-    local args = {
-        [1] = Enum.KeyCode.Q
-    }
+  local args = {
+    [1] = Enum.KeyCode.Q
+}
 
-    -- Fire the server event with the specified args
-    game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:FireServer(unpack(args))
+game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:FireServer(unpack(args))
 
     -- Destroy the ChartreusePeriastron tool after firing the server event
     game.Players.LocalPlayer.Character.ChartreusePeriastron:Destroy()
