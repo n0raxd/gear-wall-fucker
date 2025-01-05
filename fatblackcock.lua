@@ -209,10 +209,11 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   end)
     
     
-local spamid = gearwall5:NewTextBar("gear id", ":D")
+local spamid = gearwall5:NewTextBar("gear id/model", ":D")
   gearwall5:NewButton("start", "mreow", function()
  if _G.running == true then
     _G.running = false
+         _G.running = true
        
     _G.gearid = spamid.Text
     loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()  -- Otherwise, run the loadstring  -- Call typegear if _G.running is already true
@@ -223,8 +224,11 @@ else
 end
 
   end)
+gearwall5:NewLabel("this stop button controls all scripts")
  gearwall5:NewButton("stop", "mreow", function()
         _G.running = false
        
       end)
+    
   end)
+
