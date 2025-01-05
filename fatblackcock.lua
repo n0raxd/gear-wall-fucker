@@ -207,7 +207,7 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
                gearwall2:NewButton("Profile Card", ":3", function()
   typegear("11338070099", false)
   end)
-   11338101145
+   
                    gearwall2:NewButton("neck breaker", ":3", function()
   typegear("11338101145", false)
   end)
