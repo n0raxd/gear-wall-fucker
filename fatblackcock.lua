@@ -146,7 +146,19 @@
   end)
   gearwall:NewButton("Delete All Ur Tools", ":3", function()
   game.Players.LocalPlayer.Backpack:ClearAllChildren()
+ local player = game.Players.LocalPlayer
+local character = player.Character
+
+if character then
+    for _, child in pairs(character:GetChildren()) do
+        if child:IsA("Tool") then
+            child:Destroy()
+        end
+    end
+end
+
   end)
+https://raw.githubusercontent.com/n0raxd/the-sweat-list/refs/heads/main/antihotpotato
   local customid = gearwall:NewTextBar("gear id", ":D")
   gearwall:NewButton("spawn gear", "mreow", function()
   typegear(customid.Text)
