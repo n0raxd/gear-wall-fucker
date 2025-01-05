@@ -174,6 +174,18 @@ end
   end)
     
       gearwall:NewButton("delete tools on respawn", ":3", function()
+         game.Players.LocalPlayer.Backpack:ClearAllChildren()
+ local player = game.Players.LocalPlayer
+local character = player.Character
+
+if character then
+    for _, child in pairs(character:GetChildren()) do
+        if child:IsA("Tool") then
+            child:Destroy()
+        end
+    end
+end
+
          game.Players.LocalPlayer.CharacterAdded:Connect(function()
             wait(0.2)
   game.Players.LocalPlayer.Backpack:ClearAllChildren()
