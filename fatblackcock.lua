@@ -207,6 +207,13 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   
   loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/pony'))()
   end)
-
-  print("not gear wall, not loading")
+    
+    
+local spamid = gearwall5:NewTextBar("gear id", ":D")
+  gearwall5:NewButton("spam gear", "mreow", function()
+        _G.running = true
+        _G.gearid = spamid.Text
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()
+        
+  end)
 end)
