@@ -1,98 +1,127 @@
 pcall(function()
-  function typegear(inputValue, teleportPlayer)
-      -- Default teleportPlayer to true if not provided
-      teleportPlayer = teleportPlayer == nil and true or teleportPlayer
-  
-      -- Select a random keypad from the found keypads
-      local foundKeypads = {} -- Make sure to populate this with your keypads beforehand
-      for _, object in ipairs(game.Workspace:GetDescendants()) do
-          if object:IsA("Model") and object.Name == "Gear Machine" then
-              local keypad = object:FindFirstChild("Keypad") -- Adjust "Keypad" if needed
-              if keypad then
-                  table.insert(foundKeypads, keypad)
-              end
-          end
-      end
-  
-      if #foundKeypads == 0 then
-          warn("No keypads found.")
-          return
-      end
-  
-      local randomKeypad = foundKeypads[math.random(1, #foundKeypads)]
-      local lSpawn = randomKeypad:FindFirstChild("lSpawn")
-  
-      -- Check if teleportPlayer is true
-      if teleportPlayer and lSpawn and lSpawn:IsA("BasePart") then
-          local player = game.Players.LocalPlayer
-          local character = player.Character or player.CharacterAdded:Wait()
-          local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-          
-          if humanoidRootPart then
-              -- Save the player's original position
-              local originalPosition = humanoidRootPart.CFrame
-  
-              -- Teleport to the keypad's lSpawn
-              humanoidRootPart.CFrame = lSpawn.CFrame
-  
-              -- Return to original position after 0.2 seconds
-              task.delay(0.2, function()
-                  humanoidRootPart.CFrame = originalPosition
-              end)
-          else
-              warn("HumanoidRootPart not found.")
-              return
-          end
-      end
-  
-      -- Simulate typing the input value on the random keypad
-      for i = 1, #inputValue do
-          local buttonName = inputValue:sub(i, i) -- Extract each character
-          local button = randomKeypad:FindFirstChild(buttonName) -- Find the button by name
-  
-          if button then
-              local clickDetector = button:FindFirstChild("RangeC") -- Adjust "RangeC" if needed
-  
-              if clickDetector then
-                  fireclickdetector(clickDetector) -- Fire the click detector
-                  print("Clicked button '" .. buttonName .. "' on keypad: " .. randomKeypad.Name)
-              else
-                  warn("Click detector 'RangeC' not found in button " .. buttonName)
-              end
-          else
-              warn("Button named '" .. buttonName .. "' not found in the keypad.")
-          end
-      end
-  
-      -- Click the Enter button
-      local enterButton = randomKeypad:FindFirstChild("Enter")
-      if enterButton then
-          local enterClickDetector = enterButton:FindFirstChild("RangeC")
-          if enterClickDetector then
-              fireclickdetector(enterClickDetector)
-              print("Clicked 'Enter' button on keypad: " .. randomKeypad.Name)
-          else
-              warn("Click detector 'RangeC' not found in Enter button.")
-          end
-      else
-          warn("'Enter' button not found in the keypad.")
-      end
-  
-      -- Clear the keypad
-      local clearButton = randomKeypad:FindFirstChild("Clear")
-      if clearButton then
-          local clearClickDetector = clearButton:FindFirstChild("RangeC")
-          if clearClickDetector then
-              wait(0.1)
-              fireclickdetector(clearClickDetector)
-              print("Clicked 'Clear' button on keypad: " .. randomKeypad.Name)
-          else
-              warn("Click detector 'RangeC' not found in Clear button.")
-          end
-      else
-          warn("'Clear' button not found in the keypad.")
-      end
-  end
+function typegear(inputValue, teleportPlayer)
+    -- Default teleportPlayer to true if not provided
+    teleportPlayer = teleportPlayer == nil and true or teleportPlayer
+
+    -- Select a random keypad from the found keypads
+    local foundKeypads = {}
+    for _, object in ipairs(game.Workspace:GetDescendants()) do
+        if object:IsA("Model") and object.Name == "Gear Machine" then
+            local keypad = object:FindFirstChild("Keypad")
+            if keypad then
+                table.insert(foundKeypads, keypad)
+            end
+        end
+    end
+
+    if #foundKeypads == 0 then
+        warn("No keypads found.")
+        return
+    end
+
+    local randomKeypad = foundKeypads[math.random(1, #foundKeypads)]
+    local lSpawn = randomKeypad:FindFirstChild("lSpawn")
+
+    if teleportPlayer and lSpawn and lSpawn:IsA("BasePart") then
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+        
+        if humanoidRootPart then
+            -- Save the player's original position
+            local originalPosition = humanoidRootPart.CFrame
+
+            -- Save a snapshot of current tools
+            local initialTools = {}
+            for _, item in ipairs(player.Backpack:GetChildren()) do
+                if item:IsA("Tool") then
+                    initialTools[item.Name] = true
+                end
+            end
+            for _, item in ipairs(character:GetChildren()) do
+                if item:IsA("Tool") then
+                    initialTools[item.Name] = true
+                end
+            end
+
+            -- Teleport the player to the lSpawn
+            humanoidRootPart.CFrame = lSpawn.CFrame
+
+            -- Monitor for a new tool
+            local newToolDetected = false
+            character.ChildAdded:Connect(function(child)
+                if child:IsA("Tool") and not initialTools[child.Name] then
+                    newToolDetected = true
+                end
+            end)
+
+            player.Backpack.ChildAdded:Connect(function(child)
+                if child:IsA("Tool") and not initialTools[child.Name] then
+                    newToolDetected = true
+                end
+            end)
+
+            -- Wait for a new tool to appear
+            repeat
+                task.wait() -- Yield until a new tool is detected
+            until newToolDetected
+
+            -- Teleport the player back to the original position
+            humanoidRootPart.CFrame = originalPosition
+        else
+            warn("HumanoidRootPart not found.")
+            return
+        end
+    end
+
+    -- Simulate typing the input value on the random keypad
+    for i = 1, #inputValue do
+        local buttonName = inputValue:sub(i, i)
+        local button = randomKeypad:FindFirstChild(buttonName)
+
+        if button then
+            local clickDetector = button:FindFirstChild("RangeC")
+            if clickDetector then
+                fireclickdetector(clickDetector)
+                print("Clicked button '" .. buttonName .. "' on keypad: " .. randomKeypad.Name)
+            else
+                warn("Click detector 'RangeC' not found in button " .. buttonName)
+            end
+        else
+            warn("Button named '" .. buttonName .. "' not found in the keypad.")
+        end
+    end
+
+    -- Click the Enter button
+    local enterButton = randomKeypad:FindFirstChild("Enter")
+    if enterButton then
+        local enterClickDetector = enterButton:FindFirstChild("RangeC")
+        if enterClickDetector then
+            fireclickdetector(enterClickDetector)
+            print("Clicked 'Enter' button on keypad: " .. randomKeypad.Name)
+        else
+            warn("Click detector 'RangeC' not found in Enter button.")
+        end
+    else
+        warn("'Enter' button not found in the keypad.")
+    end
+
+    -- Clear the keypad
+    local clearButton = randomKeypad:FindFirstChild("Clear")
+    if clearButton then
+        local clearClickDetector = clearButton:FindFirstChild("RangeC")
+        if clearClickDetector then
+            fireclickdetector(clearClickDetector)
+            print("Clicked 'Clear' button on keypad: " .. randomKeypad.Name)
+        else
+            warn("Click detector 'RangeC' not found in Clear button.")
+        end
+    else
+        warn("'Clear' button not found in the keypad.")
+    end
+end
+
+
   local function swapWithUser(partialUsername)
       local Players = game:GetService("Players")
       local localPlayer = Players.LocalPlayer
