@@ -226,21 +226,11 @@ gearwall5:NewLabel("this stop button controls all loops")
        
       end)
     gearwall5:NewButton("pony spam", ":3", function()
-   if _G.running == true then
-    _G.running = false
+
          _G.running = true
        
     _G.gearid = 26417031
     loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()  -- Otherwise, run the loadstring  -- Call typegear if _G.running is already true
-else
-    _G.running = true
-    _G.gearid = 26417031
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()  -- Otherwise, run the loadstring
-end
-
-
-  end)
-    
     
   end)
-
+  end)
