@@ -186,3 +186,4 @@ if placeid == 6816362093 then
   end)
 else
   print("not gear wall, not loading")
+end
