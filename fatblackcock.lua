@@ -135,40 +135,7 @@ pcall(function()
   typegear("78730532")
   
   end)
-    gearwall6:NewButton("hedgehog 0cooldown", "mreow", function()
-  -- Variables
 
-    
-    -- Variables
-local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
-local userInputService = game:GetService("UserInputService")
-local debounce = false -- To prevent multiple triggers within 0.1 seconds
-
--- Function to trigger the action
-local function triggerTypegear()
-    if debounce then return end
-    debounce = true
-    
-    -- Check if the input is not over a GUI
-    local guiObject = userInputService:GetFocusedTextBox()
-    if not guiObject then
-        task.wait(0.1) -- Wait 0.1 seconds
-        typegear("11338070099", false) -- Call the function
-    end
-    
-    debounce = false
-end
-
--- Mouse or touch input detection
-userInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end -- Ignore inputs processed by the game (e.g., GUI buttons)
-    
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        triggerTypegear()
-    end
-end)
-  end)
   local customid2 = gearwall6:NewTextBar("username", ":D")
   gearwall6:NewButton("body swap (equip body swap gear)", "mreow", function()
   
