@@ -154,7 +154,10 @@ pcall(function()
         end
   end)
     
-   
+   gearwall:NewButton("reset player", ":3", function()
+  game.Players.LocalPlayer.Character.Head:Destroy()
+
+  end)
   gearwall:NewButton("Delete All Ur Tools", ":3", function()
   game.Players.LocalPlayer.Backpack:ClearAllChildren()
  local player = game.Players.LocalPlayer
@@ -169,6 +172,7 @@ if character then
 end
 
   end)
+    
       gearwall:NewButton("delete tools on respawn", ":3", function()
          game.Players.LocalPlayer.CharacterAdded:Connect(function()
             wait(0.2)
