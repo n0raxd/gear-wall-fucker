@@ -128,7 +128,7 @@ pcall(function()
   local gearwall2 = Pendulum:NewTab("model stuff")
   local gearwall3 = Pendulum:NewTab("universal stuff")
   local gearwall4 = Pendulum:NewTab("game breaking shit")
-  local gearwall5 = Pendulum:NewTab("spam scripts")
+  local gearwall5 = Pendulum:NewTab("spammer™")
   local gearwall6 = Pendulum:NewTab("walkspeed/other stuff")
   -- gear spawning
   gearwall6:NewButton("get body swap gear", "mreow", function()
