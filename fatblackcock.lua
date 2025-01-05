@@ -147,7 +147,7 @@ typegear("80661504")
 game:GetService("Players").LocalPlayer.Character:WaitForChild("ChartreusePeriastron"):WaitForChild("Remote"):FireServer(unpack(args))
 
           game.Players.LocalPlayer.Character.ChartreusePeriastron:Destroy()
-          wait(11)
+          wait(10)
         end
       end)
   gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
@@ -170,7 +170,8 @@ local function setupCharacter(character)
         if child:IsA("Tool") then
             child.Activated:Connect(function()
                 if hasHedgehogCannon(character) then  -- Only run if FlamingHedgehogCannon is present
-                    task.delay(0.1, function()
+                    task.delay(0.01, function()
+                          game.Players.LocalPlayer.Character.FlamingHedgehogCannon:Destroy()
                         typegear("60357972")
                     end)
                 end
