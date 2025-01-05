@@ -204,12 +204,7 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
   end)
   -- spamming to be done
-  gearwall5:NewButton("pony spam", ":3", function()
   
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/gear-wall-fucker/refs/heads/main/pony'))()
-  end)
-    
-    
 local spamid = gearwall5:NewTextBar("gear id/model", ":D")
   gearwall5:NewButton("start", "mreow", function()
  if _G.running == true then
@@ -225,11 +220,27 @@ else
 end
 
   end)
-gearwall5:NewLabel("this stop button controls all scripts")
+gearwall5:NewLabel("this stop button controls all loops")
  gearwall5:NewButton("stop", "mreow", function()
         _G.running = false
        
       end)
+    gearwall5:NewButton("pony spam", ":3", function()
+   if _G.running == true then
+    _G.running = false
+         _G.running = true
+       
+    _G.gearid = 26417031
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()  -- Otherwise, run the loadstring  -- Call typegear if _G.running is already true
+else
+    _G.running = true
+    _G.gearid = 26417031
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))()  -- Otherwise, run the loadstring
+end
+
+
+  end)
+    
     
   end)
 
