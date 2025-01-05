@@ -154,7 +154,7 @@ while wait() do
     }
 
     -- Fire the server event with the specified args
-    game:GetService("Players").LocalPlayer.Character:WaitForChild("ChartreusePeriastron"):WaitForChild("Remote"):FireServer(unpack(args))
+    game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:FireServer(unpack(args))
 
     -- Destroy the ChartreusePeriastron tool after firing the server event
     game.Players.LocalPlayer.Character.ChartreusePeriastron:Destroy()
@@ -298,6 +298,13 @@ end)
 gearwall:NewButton("Hedgehog Cannon", ":3", function()
   typegear("60357972")
   end)
+    gearwall:NewButton("anime sword", ":3", function()
+  typegear("71037101")
+  end)
+     gearwall:NewButton("vamp sword", ":3", function()
+  typegear("94794847")
+  end)
+    
    gearwall:NewButton("Scroll", ":3", function()
   typegear("125013830")
   end)
