@@ -158,8 +158,7 @@ if character then
 end
 
   end)
-https://raw.githubusercontent.com/n0raxd/the-sweat-list/refs/heads/main/antihotpotato
-  local customid = gearwall:NewTextBar("gear id", ":D")
+local customid = gearwall:NewTextBar("gear id", ":D")
   gearwall:NewButton("spawn gear", "mreow", function()
   typegear(customid.Text)
   end)
