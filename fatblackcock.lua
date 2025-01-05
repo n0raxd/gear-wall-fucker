@@ -144,6 +144,26 @@ pcall(function()
   gearwall6:NewButton("set walkspeed", "mreow", function()
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
   end)
+    gearwall6:NewButton("hedgecannon 0 cooldown", "mreow", function()
+  local player = game.Players.LocalPlayer
+
+-- Function to handle tool activation
+local function onToolActivated(tool)
+    tool.Activated:Connect(function()
+        print(tool.Name .. " was activated!")
+        typegear("60357972")
+    end)
+end
+
+-- Listen for a new tool being added to the backpack
+player.Backpack.ChildAdded:Connect(function(child)
+    if child:IsA("Tool") and child.Name == "FlamingHedgehogCannon" then
+        print("New tool added: " .. child.Name)
+        onToolActivated(child)
+    end
+end)
+
+  end)
   gearwall:NewButton("Delete All Ur Tools", ":3", function()
   game.Players.LocalPlayer.Backpack:ClearAllChildren()
  local player = game.Players.LocalPlayer
