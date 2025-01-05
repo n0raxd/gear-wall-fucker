@@ -136,7 +136,43 @@ pcall(function()
   typegear("78730532")
   
       end)
+  gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
+  typegear("78730532")
+  local player = game.Players.LocalPlayer
 
+-- Function to check if FlamingHedgehogCannon is in character
+local function hasHedgehogCannon(character)
+    for _, item in pairs(character:GetChildren()) do
+        if item:IsA("Tool") and item.Name == "FlamingHedgehogCannon" then
+            return true
+        end
+    end
+    return false
+end
+
+-- Function to set up monitoring for a character
+local function setupCharacter(character)
+    character.ChildAdded:Connect(function(child)
+        if child:IsA("Tool") then
+            child.Activated:Connect(function()
+                if hasHedgehogCannon(character) then  -- Only run if FlamingHedgehogCannon is present
+                    task.delay(0.1, function()
+                        typegear("60357972")
+                    end)
+                end
+            end)
+        end
+    end)
+end
+
+-- Monitor current character
+if player.Character then
+    setupCharacter(player.Character)
+end
+
+-- Monitor future characters
+player.CharacterAdded:Connect(setupCharacter)
+      end)
   local customid2 = gearwall6:NewTextBar("username", ":D")
   gearwall6:NewButton("body swap (equip body swap gear)", "mreow", function()
   
