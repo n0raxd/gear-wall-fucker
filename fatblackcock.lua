@@ -309,6 +309,12 @@ end
     _G.gearid = "26417031"
     loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))() 
       end)
-    
+        gearwall5:NewButton("easter zombie", "mreow", function()
+        _G.running = false
+        wait(0.1)
+           _G.running = true
+    _G.gearid = "24673922"
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))() 
+      end)
   end)
   
