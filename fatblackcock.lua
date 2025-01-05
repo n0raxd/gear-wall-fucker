@@ -191,7 +191,8 @@ local function setupCharacter(character)
         if child:IsA("Tool") then
             child.Activated:Connect(function()
                 if hasHedgehogCannon(character) then  -- Only run if FlamingHedgehogCannon is present
-                    task.delay(0.01, function()
+                    task.delay(0.2, function()
+                          
                           game.Players.LocalPlayer.Character.FlamingHedgehogCannon:Destroy()
                         typegear("60357972")
                     end)
