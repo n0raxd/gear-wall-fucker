@@ -259,7 +259,7 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
     
                        gearwall2:NewButton("photo booth", ":3", function()
   typegear("11338043256", false)
-  end)
+  end)  
   -- universal
     
   gearwall3:NewButton("inf yeild", ":3", function()
@@ -280,6 +280,11 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   end)
   gearwall4:NewButton("Sword Kill All (Requires Ice Dagger)", ":3", function()
   loadstring(game:HttpGet('https://raw.githubusercontent.com/zephyr10101/sword-kill-all/main/script'))()
+  end)
+      gearwall4:NewButton("floor glitch starterpack", ":3", function()
+        typegear("110789105")
+        wait(0.1)
+        typegear("112593662")
   end)
   -- spamming to be done
   
