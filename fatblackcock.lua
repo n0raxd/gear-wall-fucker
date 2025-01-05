@@ -187,11 +187,36 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   typegear("225921000")
   end)
   -- model spawning 
+    
   gearwall2:NewButton("Easter Zombie", ":3", function()
   typegear("24673922", false)
   end)
-   
+    gearwall2:NewLabel("Modules!")
+   gearwall2:NewButton("Emote Bar", ":3", function()
+  typegear("11337892497", false)
+  end)
+      gearwall2:NewButton("Friend Locator", "lets you teleport to ur friends", function()
+  typegear("11338008960", false)
+  end)
+         gearwall2:NewButton("spawn with friends", ":3", function()
+  typegear("11338113281", false)
+  end)
+            gearwall2:NewButton("selfie mode", ":3", function()
+  typegear("11338094218", false)
+  end)
+               gearwall2:NewButton("Profile Card", ":3", function()
+  typegear("11338070099", false)
+  end)
+   11338101145
+                   gearwall2:NewButton("neck breaker", ":3", function()
+  typegear("11338101145", false)
+  end)
+    
+                       gearwall2:NewButton("photo booth", ":3", function()
+  typegear("11338043256", false)
+  end)
   -- universal
+    
   gearwall3:NewButton("inf yeild", ":3", function()
   loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
   end)
