@@ -298,9 +298,17 @@ else
 end
 
   end)
- gearwall5:NewButton("stop", "mreow", function()
+ gearwall5:NewButton("stop (controls all loops)", "mreow", function()
         _G.running = false
        
       end)
+     gearwall5:NewButton("pony spam", "mreow", function()
+        _G.running = false
+        wait(0.1)
+           _G.running = true
+    _G.gearid = 26417031
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))() 
+      end)
+    
   end)
   
