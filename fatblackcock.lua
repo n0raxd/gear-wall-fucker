@@ -223,5 +223,8 @@ else
 end
 
   end)
-
+ gearwall5:NewButton("stop", "mreow", function()
+        _G.running = false
+       
+      end)
   end)
