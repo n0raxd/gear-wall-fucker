@@ -138,7 +138,8 @@ pcall(function()
       end)
     gearwall6:NewButton("green sword exploit", "mreow", function()
         while wait() do
-typegear("60357972")
+typegear("80661504")
+          
           local args = {
     [1] = Enum.KeyCode.Q
 }
