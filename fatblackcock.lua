@@ -130,16 +130,20 @@ if placeid == 6816362093 then
   local gearwall3 = Pendulum:NewTab("universal stuff")
   local gearwall4 = Pendulum:NewTab("game breaking shit")
   local gearwall5 = Pendulum:NewTab("spam scripts")
-  
+  local gearwall6 = Pendulum:NewTab("walkspeed/other stuff")
   -- gear spawning
-  gearwall:NewButton("get body swap gear", "mreow", function()
+  gearwall6:NewButton("get body swap gear", "mreow", function()
   typegear("78730532")
   wait(0.2)
   end)
-  local customid2 = gearwall:NewTextBar("username", ":D")
-  gearwall:NewButton("body swap (equip body swap gear)", "mreow", function()
+  local customid2 = gearwall6:NewTextBar("username", ":D")
+  gearwall6:NewButton("body swap (equip body swap gear)", "mreow", function()
   
   swapWithUser(customid2.Text)
+  end)
+    local walkspeed = gearwall:NewTextBar("walkspeed number", ":D")
+  gearwall:NewButton("set walkspeed", "mreow", function()
+  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
   end)
   gearwall:NewButton("Delete All Ur Tools", ":3", function()
   game.Players.LocalPlayer.Backpack:ClearAllChildren()
