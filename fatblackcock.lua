@@ -157,7 +157,7 @@
 gearwall:NewButton("Hedgehog Cannon", ":3", function()
   typegear("60357972")
   end)
-   gearwall:NewButton("Scroll ", ":3", function()
+   gearwall:NewButton("Scroll", ":3", function()
   typegear("125013830")
   end)
   gearwall:NewButton("Green Sword", ":3", function()
