@@ -1,4 +1,4 @@
-
+pcall(function()
   function typegear(inputValue, teleportPlayer)
       -- Default teleportPlayer to true if not provided
       teleportPlayer = teleportPlayer == nil and true or teleportPlayer
@@ -205,4 +205,4 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   end)
 
   print("not gear wall, not loading")
-
+end)
