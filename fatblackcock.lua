@@ -137,7 +137,7 @@ pcall(function()
   
       end)
   gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
-  typegear("78730532")
+  typegear("60357972")
   local player = game.Players.LocalPlayer
 
 -- Function to check if FlamingHedgehogCannon is in character
