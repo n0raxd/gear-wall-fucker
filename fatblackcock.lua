@@ -139,7 +139,7 @@ pcall(function()
       gearwall6:NewButton("hedgehog gun 0 cooldown", "mreow", function()
   typegear("60357972")
   local player = game.Players.LocalPlayer
-_G.nocooldown = false  -- Initialize the toggle to false
+_G.nocooldown = true  -- Initialize the toggle to false
 
 -- Function to set up monitoring for a character
 local function setupCharacter(character)
@@ -156,7 +156,10 @@ local function setupCharacter(character)
     end)
 end
       end)
+ gearwall6:NewButton("stop hedgehog 0 cooldown", "mreow", function()
+ _G.nocooldown = false 
 
+      end)
 
 -- Monitor current character
 if player.Character then
