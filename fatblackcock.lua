@@ -174,10 +174,14 @@ gearwall:NewButton("Hedgehog Cannon", ":3", function()
   gearwall:NewButton("Green Sword", ":3", function()
   typegear("80661504")
   end)
+     gearwall:NewButton("Rainbow Carpet", ":3", function()
+  typegear("225921000")
+  end)
   -- model spawning 
   gearwall2:NewButton("Easter Zombie", ":3", function()
   typegear("24673922", false)
   end)
+   
   -- universal
   gearwall3:NewButton("inf yeild", ":3", function()
   loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
