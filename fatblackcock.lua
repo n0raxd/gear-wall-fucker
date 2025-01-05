@@ -167,6 +167,9 @@ if character then
 end
 
   end)
+    gearwall:NewButton("invis (key is t)", ":3", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Sakupenny/Universal-R6-Invis/refs/heads/main/Main.lua"))()
+      end)
 local customid = gearwall:NewTextBar("gear id", ":D")
   gearwall:NewButton("spawn gear", "mreow", function()
   typegear(customid.Text)
