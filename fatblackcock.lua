@@ -145,12 +145,10 @@ pcall(function()
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
   end)
     
-       local permwalkspeed = gearwall6:NewTextBar("perm walkspeed number", ":D")
-    
   gearwall6:NewButton("set perm walkspeed", "mreow", function()
         while task.wait() do
           
-  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = permwalkspeed.Text
+  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed.Text
         end
   end)
     
