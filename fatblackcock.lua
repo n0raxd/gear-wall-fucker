@@ -180,18 +180,6 @@ end
       end)
   gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
   typegear("60357972")
-         local hedge
-    local success, err = pcall(function()
-        hedge = game:GetService("Players").LocalPlayer.Character:WaitForChild("FlamingHedgehogCannon", 2)
-    end)
-
-    -- If the tool wasn't found in time or an error occurred
-    if not success or not hedge then
-        print("Tool not found in time or error occurred, rerunning typegear.")
-        -- Rerun the typegear function
-         typegear("60357972")
-        continue  -- Skip the rest of the loop and retry immediately
-    end
   local player = game.Players.LocalPlayer
 
 -- Function to check if FlamingHedgehogCannon is in character
