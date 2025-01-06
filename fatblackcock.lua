@@ -124,13 +124,14 @@ pcall(function()
   local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/shidemuri/scripts/main/ui_lib.lua"))()
   local Pendulum = Library:New("test all gears fucker")
   
-  local gearwall = Pendulum:NewTab("gear spawning")
+  local gearwall = Pendulum:NewTab("main gear spawning")
   
   local gearwall2 = Pendulum:NewTab("model stuff")
   local gearwall3 = Pendulum:NewTab("universal stuff")
   local gearwall4 = Pendulum:NewTab("game breaking shit")
   local gearwall5 = Pendulum:NewTab("spammer™")
   local gearwall6 = Pendulum:NewTab("walkspeed/other stuff")
+  local gearwall7 = Pendulum:NewTab("gear catalog")
   -- gear spawning
   gearwall6:NewButton("get body swap gear", "mreow", function()
   typegear("78730532")
@@ -436,5 +437,32 @@ end
     _G.gearid = "24673922"
     loadstring(game:HttpGet('https://raw.githubusercontent.com/n0raxd/crash-bot/refs/heads/main/ggs.lua'))() 
       end)
+    -- Example Gear Data (this is how your table is structured)
+local gears = {
+    ["Big Bag of Bucks"] = {
+        ID = 999864737,
+        Name = "DucktalesMoneyBag",
+        TextureID = "rbxassetid://999873924"
+    },
+    ["Snow Storm Cloud"] = {
+        ID = 189910805,
+        Name = "SnowStormCloud",
+        TextureID = "http://www.roblox.com/asset/?id=187687075"
+    },
+    ["Fake Egg Spawner"] = {
+        ID = 220288991,
+        Name = "FakeEggSpawner",
+        TextureID = "http://www.roblox.com/asset/?id=225550059"
+    }
+}
+
+-- Loop through all the gears and create buttons dynamically
+for gearName, gearData in pairs(gears) do
+    -- Create a button for each gear
+    gearwall7:NewButton(gearData.Name, "" .. gearName, function()
+        typegear(tostring(gearData.ID))
+    end)
+end
+
   end)
   
