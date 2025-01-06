@@ -139,31 +139,22 @@ pcall(function()
     gearwall6:NewButton("green sword exploit", "mreow", function()
 while wait() do
     -- Save the tools currently equipped by the player
-    local equippedTools = {}
-    for _, tool in ipairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
-        if tool:IsA("Tool") then
-            table.insert(equippedTools, tool)
-        end
-    end
+
     
     -- Call typegear with the ID
     typegear("80661504")
-    
+    local chartreusePeriastron = game:GetService("Players").LocalPlayer.Character:WaitForChild("ChartreusePeriastron")
+
   local args = {
     [1] = Enum.KeyCode.Q
 }
 
-game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:FireServer(unpack(args))
+chartreusePeriastron.Remote:FireServer(unpack(args))
 
     -- Destroy the ChartreusePeriastron tool after firing the server event
-    game.Players.LocalPlayer.Character.ChartreusePeriastron:Destroy()
+    chartreusePeriastron:Destroy()
     
     -- Re-equip the tools that were equipped before calling typegear
-    for _, tool in ipairs(equippedTools) do
-        if tool.Parent == game:GetService("Players").LocalPlayer.Backpack then
-            tool.Parent = game:GetService("Players").LocalPlayer.Character
-        end
-    end
 
     -- Wait 10 seconds before the loop runs again
     wait(10)
