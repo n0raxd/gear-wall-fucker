@@ -139,26 +139,43 @@ pcall(function()
     gearwall6:NewButton("green sword exploit", "mreow", function()
 while wait() do
     -- Save the tools currently equipped by the player
+    local currentTools = {}  -- Table to track current tools (if needed later)
 
-    
     -- Call typegear with the ID
     typegear("80661504")
-    local chartreusePeriastron = game:GetService("Players").LocalPlayer.Character:WaitForChild("ChartreusePeriastron")
 
-  local args = {
-    [1] = Enum.KeyCode.Q
-}
+    -- Try to get the tool and wait up to 2 seconds
+    local chartreusePeriastron
+    local success, err = pcall(function()
+        chartreusePeriastron = game:GetService("Players").LocalPlayer.Character:WaitForChild("ChartreusePeriastron", 2)
+    end)
 
-chartreusePeriastron.Remote:FireServer(unpack(args))
+    -- If the tool wasn't found in time or an error occurred
+    if not success or not chartreusePeriastron then
+        print("Tool not found in time or error occurred, rerunning typegear.")
+        -- Rerun the typegear function
+        typegear("80661504")
+        continue  -- Skip the rest of the loop and retry immediately
+    end
+
+    -- Proceed with the tool if it's found
+    local args = {
+        [1] = Enum.KeyCode.Q
+    }
+
+    -- Fire the remote server event (assuming it exists on the tool)
+    chartreusePeriastron.Remote:FireServer(unpack(args))
 
     -- Destroy the ChartreusePeriastron tool after firing the server event
     chartreusePeriastron:Destroy()
-    
+
     -- Re-equip the tools that were equipped before calling typegear
+    -- (You may need to restore the tools here if required)
 
     -- Wait 10 seconds before the loop runs again
     wait(10)
 end
+
 
       end)
   gearwall6:NewButton("hedgehog cannon exploit", "mreow", function()
