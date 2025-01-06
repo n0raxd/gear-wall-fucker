@@ -160,8 +160,8 @@ game:GetService("Players").LocalPlayer.Character.ChartreusePeriastron.Remote:Fir
     
     -- Re-equip the tools that were equipped before calling typegear
     for _, tool in ipairs(equippedTools) do
-        if tool.Parent == game:GetService("Players").LocalPlayer.Character then
-            tool.Parent = game:GetService("Players").LocalPlayer.Backpack
+        if tool.Parent == game:GetService("Players").LocalPlayer.Backpack then
+            tool.Parent = game:GetService("Players").LocalPlayer.Character
         end
     end
 
