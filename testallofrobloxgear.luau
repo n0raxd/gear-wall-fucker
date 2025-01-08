@@ -134,7 +134,7 @@ pcall(function()
     -- i give up on organizing these sections
     gearwall4:NewButton("crash server (beta)", "mreow", function()
         while task.wait() do
-        typegear("6418277837")
+        typegear("6418277837", false)
         end
             end)
     -- gear spawning
